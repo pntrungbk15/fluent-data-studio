@@ -1,0 +1,16 @@
+{
+  "description": "Product catalogue of the fictional retailer; joins to retail_orders on product.",
+  "columns": {
+    "list_price": {
+      "aggregation": "avg",
+      "format": "currency"
+    },
+    "unit_cost": {
+      "aggregation": "avg",
+      "format": "currency"
+    },
+    "product": {
+      "role": "dimension"
+    }
+  }
+}

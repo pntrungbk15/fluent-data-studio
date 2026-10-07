@@ -1,0 +1,26 @@
+{
+  "description": "Daily performance of a fictional company's marketing campaigns, 2024 to 2025.",
+  "columns": {
+    "spend": {
+      "format": "currency",
+      "synonyms": [
+        "cost",
+        "budget",
+        "ad spend"
+      ]
+    },
+    "revenue": {
+      "format": "currency",
+      "description": "Attributed revenue",
+      "synonyms": [
+        "sales"
+      ]
+    },
+    "conversions": {
+      "synonyms": [
+        "orders",
+        "signups"
+      ]
+    }
+  }
+}

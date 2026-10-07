@@ -1,0 +1,83 @@
+{
+  "description": "Customer orders of a fictional multi-channel retailer, 2024 to 2025. One row per order line.",
+  "columns": {
+    "order_date": {
+      "description": "Date the order was placed",
+      "synonyms": [
+        "date",
+        "order day"
+      ]
+    },
+    "revenue": {
+      "description": "Net revenue after discount",
+      "format": "currency",
+      "synonyms": [
+        "sales",
+        "turnover",
+        "income"
+      ]
+    },
+    "cost": {
+      "description": "Cost of goods sold",
+      "format": "currency",
+      "synonyms": [
+        "cogs"
+      ]
+    },
+    "units": {
+      "description": "Units sold",
+      "aggregation": "sum",
+      "synonyms": [
+        "quantity",
+        "qty",
+        "volume"
+      ]
+    },
+    "unit_price": {
+      "description": "Price per unit before discount",
+      "aggregation": "avg",
+      "format": "currency",
+      "synonyms": [
+        "price"
+      ]
+    },
+    "discount": {
+      "description": "Discount rate applied (0.1 = 10%); missing when not recorded",
+      "aggregation": "avg",
+      "format": "percent"
+    },
+    "status": {
+      "description": "Order status: Completed, Shipped, Cancelled or Returned"
+    },
+    "customer_id": {
+      "role": "identifier",
+      "description": "Pseudonymous customer key",
+      "synonyms": [
+        "customer"
+      ]
+    },
+    "product": {
+      "synonyms": [
+        "item",
+        "sku name"
+      ]
+    },
+    "category": {
+      "synonyms": [
+        "product category",
+        "segment"
+      ]
+    },
+    "region": {
+      "synonyms": [
+        "area",
+        "territory"
+      ]
+    },
+    "channel": {
+      "synonyms": [
+        "sales channel"
+      ]
+    }
+  }
+}

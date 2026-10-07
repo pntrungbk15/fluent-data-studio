@@ -1,0 +1,41 @@
+{
+  "description": "Hourly output of four fictional production lines, July to September 2025.",
+  "columns": {
+    "units_produced": {
+      "synonyms": [
+        "output",
+        "production",
+        "units"
+      ]
+    },
+    "defects": {
+      "synonyms": [
+        "rejects",
+        "scrap"
+      ]
+    },
+    "downtime_minutes": {
+      "synonyms": [
+        "downtime",
+        "stoppage"
+      ]
+    },
+    "temperature_c": {
+      "aggregation": "avg",
+      "synonyms": [
+        "temperature"
+      ]
+    },
+    "vibration_mm_s": {
+      "aggregation": "avg",
+      "synonyms": [
+        "vibration"
+      ]
+    },
+    "line": {
+      "synonyms": [
+        "production line"
+      ]
+    }
+  }
+}
