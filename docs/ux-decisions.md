@@ -107,8 +107,8 @@ not a place:
 
 ## 5. What was kept, what changed
 
-- **Kept:** the engine and its APIs, except two additions (`record_chart_edit` to coalesce edits, and provenance
-  helpers). Also kept: the Pro chart panel and data grid, the dashboard grid of the report with drag reordering and
+- **Kept:** the engine and its interfaces, except two small additions (coalescing chart edits into one refinement,
+  and provenance lookups). Also kept: the Pro chart panel and data grid, the dashboard grid of the report with drag reordering and
   HTML export, the connection dialog, the operation forms, the settings content and the thread tree.
 - **Changed:** side navigation became top navigation with two destinations. The Data, Analysis and Workflow pages
   merged into the workspace. The long request document became an overview of tiles plus a focused result view. The

@@ -3,10 +3,9 @@
 ## Strategy
 
 Every connector does one job: copy a bounded, read-only snapshot of its data into the local DuckDB workspace. After
-that, every source looks the same to profiling, transformations, charts, planners and projects. A connector is a
-`Connector` record with a form description (fields such as path, host, table, query, password), an optional table
-lister and a `stage` function; adding a source means registering one more. The interface builds its "Add data" form
-from the field list.
+that, every source looks the same to profiling, transformations, charts, planners and projects. A connector describes
+its form (path, host, table, query, password and so on), can list the tables it offers, and stages data; adding a
+source means adding one connector, and the interface builds its "Add data" form from the connector's description.
 
 Staging locally instead of querying remote systems live keeps the analytical engine, the validation and the SQL
 dialect identical for every source. It makes results reproducible within a session and protects production databases
@@ -32,7 +31,7 @@ run against a local HTTP server that requires the token.
 ## Query safety
 
 Database connectors accept a table or a query typed by the user. Language models never write source queries; they only
-plan operations on the staged copy. A query passes `check_read_only_query` only as a single `SELECT`, `WITH` or
+plan operations on the staged copy. A query passes the read-only check only as a single `SELECT`, `WITH` or
 `VALUES` statement. It may not contain data-modifying keywords outside string literals and comments (including inside
 CTEs and `SELECT … INTO`), file-reading or side-effecting functions (`pg_sleep`, `pg_read_file`, `dblink`,
 `read_csv`, …), row locks, or dollar quoting. The connection is also read-only, so a query that slips past the text
@@ -41,9 +40,9 @@ fails with *"cannot execute INSERT in a read-only transaction"*.
 
 ## Credentials
 
-Passwords and tokens are a separate `secret` argument. They are kept in memory for the session, are never written to
+Passwords and tokens are handled separately from the source settings. They are kept in memory for the session, are never written to
 project files (a project records only that a source needs one) and are never part of what the model sees. The model's
-API key is stored in the user's data folder with owner-only permissions, or comes from `FDS_LLM_API_KEY`.
+API key is stored in the user's data folder with owner-only permissions, or comes from an environment variable.
 
 ## Roadmap and trade-offs
 
